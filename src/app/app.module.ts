@@ -2,13 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
+import { PokemonModule } from './pokemon/pokemon.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNoFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    PokemonModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

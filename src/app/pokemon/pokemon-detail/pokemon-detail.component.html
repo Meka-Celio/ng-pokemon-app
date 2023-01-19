@@ -1,0 +1,78 @@
+<div *ngIf="pokemon">
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <table class="striped centered">
+                <thead>
+                    <tr>
+                        <th>{{pokemon.nom}}</th>
+                        <th colspan="2">INFOS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img [src]="pokemon.picture" [alt]="pokemon.nom">
+                        </td>
+                        <td>
+                            <table class="striped">
+                                <tbody>
+                                    <tr>
+                                        <th>N°</th>
+                                        <td><strong>{{ pokemon.num }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <th>NOM</th>
+                                        <td><strong>{{ pokemon.nom }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type</th>
+                                        <td>
+                                            <span 
+                                                *ngFor="let type of pokemon.types" 
+                                                class="{{ type | pokemonTypeColor }}">
+                                                    {{ type }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>PV</th>
+                                        <td>{{ pokemon.pv }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Attaque</th>
+                                        <td>{{ pokemon.atk }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Défense</th>
+                                        <td>{{ pokemon.def }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Attaque Spéciale</th>
+                                        <td>{{ pokemon.atkSpe }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Défense Spéciale</th>
+                                        <td>{{ pokemon.defSpe }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Vitesse</th>
+                                        <td>{{ pokemon.vit }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <a (click)="goPokedex()" class="pink darken-2 white-text waves-effect waves-light btn-small">Retour</a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>   
+        </div>
+    </div>
+</div>
+<h3 *ngIf="!pokemon" class="red-text darken-1 center-align">Aucun pokemon à afficher !</h3>
+
